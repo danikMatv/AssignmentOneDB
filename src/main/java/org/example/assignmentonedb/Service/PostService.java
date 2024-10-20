@@ -1,8 +1,10 @@
 package org.example.assignmentonedb.Service;
+
 import org.example.assignmentonedb.Data.Post;
 import org.example.assignmentonedb.Repository.PostRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,10 +39,13 @@ public class PostService {
         return postRepository.findAllByOrderByCreatedAtDesc();
     }
 
-    public void addReactionToPost(String postId, List<String> reaction) {
+    public void addReactionToPost(String postId, String reaction) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
-        post.setReactions(reaction);
+        if (post.getReactions() == null) {
+            post.setReactions(new ArrayList<>());
+        }
+        post.getReactions().add(reaction);
         postRepository.save(post);
     }
 }

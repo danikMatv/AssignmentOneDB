@@ -48,7 +48,7 @@ public class PostController {
     }
 
     @PostMapping("/{postId}/reactions")
-    public ResponseEntity<Void> addReactionToPost(@PathVariable String postId, @RequestBody List<String> reactions) {
+    public ResponseEntity<Void> addReactionToPost(@PathVariable String postId, @RequestBody String reactions) {
         postService.addReactionToPost(postId, reactions);
         return ResponseEntity.noContent().build();
     }
