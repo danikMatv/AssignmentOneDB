@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: AssignmentOneDB
+  data:
+    mongodb:
+      uri: mongodb+srv://Misha:123@mydb.5ulpw.mongodb.net/?retryWrites=true&w=majority&appName=MyDB
+      database: MyDB
+  neo4j:
+    authentication:
+      username: neo4j
+      password: 6V0yizZ9Hkpiw2bPU-1t1lHHYpEkGV-1MfX_cWY9j-U
+    uri: neo4j+s://aa60b304.databases.neo4j.io
